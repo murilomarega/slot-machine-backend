@@ -2,11 +2,13 @@ const express = require('express');
 const serverless = require('serverless-http');
 const app = express();
 const router = express.Router();
+const cors = require('cors');
 
 const gamesList = require('./game-data.json');
 const reelsData = require('./reels-data.json');
 
-//Get all students
+app.use(cors());
+
 router.get('/', (req, res) => {
   res.send('App is running..');
 });
