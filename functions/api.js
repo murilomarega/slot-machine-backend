@@ -3,18 +3,19 @@ const serverless = require('serverless-http');
 const app = express();
 const router = express.Router();
 
-let records = [];
+const gamesList = require('./game-data.json');
+const reelsData = require('./reels-data.json');
 
 //Get all students
 router.get('/', (req, res) => {
   res.send('App is running..');
 });
 
-app.get('/api/games', (req, res) => {
+router.get('/games', (req, res) => {
   res.send({ data: gamesList });
 });
 
-app.get('/api/reels', (req, res) => {
+router.get('/reels', (req, res) => {
   res.send({ data: reelsData });
 });
 
